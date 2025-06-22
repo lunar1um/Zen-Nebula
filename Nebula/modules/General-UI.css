@@ -4,6 +4,8 @@
   background: var(--nebula-ui-tint) !important;
 }
 
+
+
 /* website tint */
 browser[transparent='true'] {
   background: var(--nebula-website-tint) !important;

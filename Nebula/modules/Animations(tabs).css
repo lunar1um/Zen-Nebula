@@ -83,7 +83,6 @@
     filter: none !important;
     transform: none !important;
     transition-delay: 0s !important;
-    border-radius: 0 !important;
   }
 }
 
@@ -188,24 +187,18 @@
 
 /* ------------------ Custom Split View Animation ------------------- */
 
-
-/* 1. Define the "scale and brighten" keyframe animation */
 @keyframes scaleAndBrighten {
-  /* Start state: Scaled down, invisible, and dark */
+  
   0% {
     transform: scale(0.95);
     opacity: 0;
     filter: brightness(0);
   }
 
-  /* Intermediate state: At 80% of the animation (0.4s),
-     the brightness is already at 100%.
-     Scale and opacity will continue animating smoothly to their 100% values. */
   50% {
     filter: brightness(0);
   }
 
-  /* End state: Full size, fully visible, and stays bright */
   100% {
     transform: scale(1);
     opacity: 1;
@@ -213,36 +206,13 @@
   }
 }
 
-/* 2. Disable the old, generic animation when in split view */
-/* This remains crucial to prevent conflicts. */
 #tabbrowser-tabpanels[zen-split-view="true"] {
   transition: none !important;
 }
 
-/* 3. Apply our new, specific animation to the panels */
-/* This targets any panel inside an active split-view container. */
 #tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer {
-  /* Apply the animation we defined above, renamed for clarity */
+
   animation: scaleAndBrighten 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
-}
-
-/* Previous animation*/
-.browserStack:has(
-    #historySwipeAnimationPreviousArrow:not([style="translate: none;"])
-  )
-  browser {
-  scale: 0.95 !important;
-  transform: translateX(3%) !important;
-}
-
-/* Next animation*/
-.browserStack:has(
-    #historySwipeAnimationNextArrow:not([style="translate: none;"])
-  )
-  browser {
-  scale: 0.95 !important;
-  transform: translateX(-3%) !important;
-
 }
 
 /* ctrl tab visuals and animations */

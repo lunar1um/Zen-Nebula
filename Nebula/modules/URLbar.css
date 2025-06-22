@@ -1,5 +1,13 @@
 /* ------------------ URLBAR Styling ------------------ */
 
+.urlbarView-url {
+  color: light-dark(rgba(90,90,90,1), rgba(145,145,145,1)) !important;
+}
+
+#urlbar-zoom-button {
+    border-radius: calc(var(--nebula-border-radius) - 5px) !important;
+
+}
 html[zen-single-toolbar="true"] #urlbar {
   margin-bottom: -4px !important;
 }
@@ -33,8 +41,15 @@ html[zen-single-toolbar="true"] #urlbar:not([open]) {
     background-color: rgba(100, 100, 100, 0.1) !important;
 }
 
+/* Remove background in all modes */
 .urlbarView-row-inner[selected] .urlbarView-favicon {
     background: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .urlbarView-favicon[src="chrome://global/skin/icons/search-glass.svg"] {
+    filter: invert(1);
+  }
 }
 
 /* Rounded corners */
@@ -138,12 +153,90 @@ html[zen-single-toolbar="true"] #urlbar:not([open]) {
     }
 }
 
+/* ------------------ urlbar open hover links gradient animation ------------------ */
+#urlbar[open] #urlbar-results > * {
+    position: relative;
+    overflow: hidden;
+}
 
+#urlbar[open] #urlbar-results > *::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        color-mix(in srgb, var(--zen-primary-color) 5%, black),
+        color-mix(in srgb, var(--zen-primary-color) 30%, black),
+        color-mix(in srgb, var(--zen-primary-color) 75%, black),
+        color-mix(in srgb, var(--zen-primary-color) 100%, black),
+        color-mix(in srgb, var(--zen-primary-color) 50%, black),
+        color-mix(in srgb, var(--zen-primary-color) 15%, black)
+    );
+    background-size: 300% 100%;
+    background-repeat: repeat-x;
+    animation: urlbar-gradient 8s linear infinite;
+    opacity: 0;
+    filter: blur(20px) brightness(1) contrast(120%);
+    transition: opacity 0.5s ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Style 0 - No gradient */
+@media (-moz-pref("nebula-glow-gradient", 0)) {
+    #urlbar[open] #urlbar-results > *::before {
+        display: none;
+    }
+}
+
+/* Monochrome gradient (Style 2) */
+@media (-moz-pref("nebula-glow-gradient", 2)) {
+    #urlbar[open] #urlbar-results > *::before {
+        background: linear-gradient(
+            45deg,
+            light-dark(#dddddd, #ffffff),
+            light-dark(#eeeeee, #dddddd),
+            light-dark(#dddddd, #bbbbbb),
+            light-dark(#ffffff, #000000),
+            light-dark(#eeeeee, #dddddd),
+            light-dark(#dddddd, #ffffff)
+        );
+        background-size: 300% 100%;
+        animation: urlbar-gradient 8s linear infinite;
+        filter: blur(20px) brightness(1);
+    }
+}
+
+/* RGB gradient (Style 3) */
+@media (-moz-pref("nebula-glow-gradient", 3)) {
+    #urlbar[open] #urlbar-results > *::before {
+        background: linear-gradient(45deg, #ff8a00, #e52e71, #7f00ff, #00c9ff, #ff8a00);
+        background-size: 300% 100%;
+        animation: urlbar-gradient 8s linear infinite;
+        filter: blur(20px) brightness(1);
+    }
+}
+
+/* Smooth opacity transition on hover */
+#urlbar[open] #urlbar-results > *:hover::before {
+    opacity: 0.81;
+}
+
+@keyframes urlbar-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: -300% 50%;
+    }
+}
 
 /* ------------------ URLbar loading & hover animation ------------------ */
 #urlbar .urlbar-input-container {
     border-radius: var(--nebula-border-radius) !important;
-    overflow: hidden;
     position: relative;
 }
 
@@ -230,83 +323,35 @@ html[zen-single-toolbar="true"] #urlbar:not([open]) {
     }
 }
 
-/* ------------------ urlbar open hover links gradient animation ------------------ */
-#urlbar[open] #urlbar-results > * {
-    position: relative;
-    overflow: hidden;
-}
+/* Links open animation */
 
-#urlbar[open] #urlbar-results > *::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        45deg,
-        color-mix(in srgb, var(--zen-primary-color) 5%, black),
-        color-mix(in srgb, var(--zen-primary-color) 30%, black),
-        color-mix(in srgb, var(--zen-primary-color) 75%, black),
-        color-mix(in srgb, var(--zen-primary-color) 100%, black),
-        color-mix(in srgb, var(--zen-primary-color) 50%, black),
-        color-mix(in srgb, var(--zen-primary-color) 15%, black)
-    );
-    background-size: 300% 100%;
-    background-repeat: repeat-x;
-    animation: urlbar-gradient 8s linear infinite;
+/* Keyframe for individual result (link) appear */
+@keyframes individual-result-appear {
+  0% {
     opacity: 0;
-    filter: blur(20px) brightness(1) contrast(120%);
-    transition: opacity 0.5s ease-in-out;
-    z-index: -1;
-    pointer-events: none;
+    transform: scale(0.95);
+  }
+  70% {
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Style 0 - No gradient */
-@media (-moz-pref("nebula-glow-gradient", 0)) {
-    #urlbar[open] #urlbar-results > *::before {
-        display: none;
-    }
+/* Apply animation to each link row */
+#urlbar-results .urlbarView-row {
+  animation: individual-result-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
 }
 
-/* Monochrome gradient (Style 2) */
-@media (-moz-pref("nebula-glow-gradient", 2)) {
-    #urlbar[open] #urlbar-results > *::before {
-        background: linear-gradient(
-            45deg,
-            light-dark(#dddddd, #ffffff),
-            light-dark(#eeeeee, #dddddd),
-            light-dark(#dddddd, #bbbbbb),
-            light-dark(#ffffff, #000000),
-            light-dark(#eeeeee, #dddddd),
-            light-dark(#dddddd, #ffffff)
-        );
-        background-size: 300% 100%;
-        animation: urlbar-gradient 8s linear infinite;
-        filter: blur(20px) brightness(1);
-    }
-}
-
-/* RGB gradient (Style 3) */
-@media (-moz-pref("nebula-glow-gradient", 3)) {
-    #urlbar[open] #urlbar-results > *::before {
-        background: linear-gradient(45deg, #ff8a00, #e52e71, #7f00ff, #00c9ff, #ff8a00);
-        background-size: 300% 100%;
-        animation: urlbar-gradient 8s linear infinite;
-        filter: blur(20px) brightness(1);
-    }
-}
-
-/* Smooth opacity transition on hover */
-#urlbar[open] #urlbar-results > *:hover::before {
-    opacity: 0.81;
-}
-
-@keyframes urlbar-gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: -300% 50%;
-    }
-}
+/* staggered delay for up to 5 results */
+#urlbar-results .urlbarView-row:nth-child(1) { animation-delay: 0s; }
+#urlbar-results .urlbarView-row:nth-child(2) { animation-delay: 0.05s; }
+#urlbar-results .urlbarView-row:nth-child(3) { animation-delay: 0.1s; }
+#urlbar-results .urlbarView-row:nth-child(4) { animation-delay: 0.15s; }
+#urlbar-results .urlbarView-row:nth-child(5) { animation-delay: 0.2s; }

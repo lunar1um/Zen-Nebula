@@ -354,8 +354,7 @@ scrollbox {
   :root[zen-compact-mode="true"]:not([zen-single-toolbar="true"]) {
     #zen-appcontent-navbar-wrapper {
       & #zen-appcontent-navbar-container {
-        display: flex !important;
-        justify-content: center !important;
+        display: block !important;
         height: fit-content !important;
         max-height: fit-content !important;
         background: transparent !important;
@@ -403,6 +402,29 @@ scrollbox {
     display: flex !important;
     justify-content: center !important;
   }
+  
+  html[zen-compact-mode="true"]:not([zen-single-toolbar="true"]) #PersonalToolbar {
+  transform: translateX(10px) translateY(-12px) !important;
+  position: relative !important;
+  z-index: 3 !important;
+  }
+  
+  html[zen-compact-mode="true"]:not([zen-single-toolbar="true"]) #PersonalToolbar toolbarbutton {
+    background-color: var(--nebula-color) !important;
+    border-radius: 10px !important; /* Optional: for better shape */
+    transition: background-color 0.3s ease, box-shadow 0.2s ease-out !important;
+   }
+}
+
+#PersonalToolbar {
+  padding-bottom: 3px !important; /* Adjust value as needed */
+}
+
+ #PersonalToolbar toolbarbutton:hover {
+  background-color: var(--nebula-color-hover) !important;
+  box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.55)) !important;
+  border-radius: 10px !important;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease-out !important;
 }
 
 

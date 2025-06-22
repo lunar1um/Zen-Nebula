@@ -5,7 +5,7 @@ tab[label$='.pdf'] img.tab-icon-image {
     height: 32px !important;
     scale: 0.5 !important;
     margin-left: -5px !important;
-    width: 32px !important;
+    width: 30px !important;
 }
 
 tab[label$='.pdf'] .tab-label-container {
@@ -15,73 +15,65 @@ tab[label$='.pdf'] .tab-label-container {
 /* ------------------- Container Tabs Styling ------------------- */
 
 @media not (-moz-pref("nebula-disable-container-styling")) {
-  
+
+  /* Container indicator in URL bar */
   #userContext-icons {
-  /* URLbar of container tabs */
-  width: 5px !important;
-  height: 14px !important;
-  border-radius: 3px !important;
-  background-color: var(--identity-tab-color) !important;
-  opacity: 0.8;
-  margin: 0 6px 0 2px !important;
-}
-  
-/* Hide the default color line of the tab */
-.tab-context-line {
-    display: none !important;
-}
-    
-/* Base setup for container color dot */
-.tabbrowser-tab[usercontextid] .tab-background {
-  position: relative !important;
-  background-color: transparent !important;
-}
-
-.tabbrowser-tab[usercontextid] .tab-background::after {
-  content: '' !important;
-  display: block !important;
-  position: absolute !important;
-  top: 11px !important;
-  right: 11px !important;
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 5px !important;
-  scale: 1;
-  background-color: var(--identity-tab-color) !important;
-  opacity: 0.5 !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  transition:
-    opacity 0.2s ease-out,
-    scale 0.3s cubic-bezier(0.2, 0.7, 0.3, 1.2) !important;
-}
-
-/* Hover state */
-.tabbrowser-tab[usercontextid]:hover .tab-background::after {
-  opacity: 0.5 !important;
-}
-
-/* Selected tab gets scaled up */
-.tabbrowser-tab[usercontextid][selected="true"] .tab-background::after {
-  scale: 1.55 !important;
-}
-
-/* If inside split-view group, shift up and shrink */
-tab-group[split-view-group] .tabbrowser-tab[usercontextid] .tab-background::after {
-  top: 7px !important;
-  rotate: 180deg;
-  scale: 1.5;
-  right: 1px !important;
-  height: 18px !important;
-}
-  
-/* Collapsed mode */
-html:not([zen-sidebar-expanded="true"]):not([zen-single-toolbar="true"])
-.tabbrowser-tab[usercontextid] .tab-background::after {
-  width: 14px !important;
-  right: 16px !important;
-  scale: 1.4 !important;
+    width: 5px !important;
+    height: 14px !important;
+    border-radius: 3px !important;
+    opacity: 0.8;
+    margin: 0 6px 0 2px !important;
+    background-color: var(--identity-tab-color) !important;
   }
+
+  /* Hide legacy container line */
+  .tab-context-line {
+    display: none !important;
+  }
+
+  /* Base tab background styling */
+  .tabbrowser-tab[usercontextid] .tab-background {
+    position: relative !important;
+  }
+
+  .tabbrowser-tab[usercontextid] .tab-background::after {
+    content: "";
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 20% !important;
+    height: 100% !important;
+    z-index: -1 !important;
+
+    filter: blur(12px) contrast(120%) brightness(150%);
+    opacity: 1 !important;
+    background: linear-gradient(to right, var(--identity-tab-color, rgba(0, 0, 255, 0.5)), transparent 40%) !important;
+    transition: opacity 0.3s ease, width 0.3s ease, background 0.3s ease, clip-path 0.3s ease !important;
+  }
+
+  /* Dimmed for unselected container tabs */
+  .tabbrowser-tab[usercontextid]:not([selected]):not([visuallyselected]) .tab-background::after {
+    width: 50% !important;
+    opacity: 0.5 !important;
+  }
+
+  /* Per-container gradient overrides */
+  .tabbrowser-tab[usercontextid="1"] .tab-background::after {
+    background: linear-gradient(to right, #009688, transparent 40%) !important;
+  }
+
+  .tabbrowser-tab[usercontextid="2"] .tab-background::after {
+    background: linear-gradient(to right, #ff6f00, transparent 40%) !important;
+  }
+
+  .tabbrowser-tab[usercontextid="3"] .tab-background::after {
+    background: linear-gradient(to right, #43a047, transparent 40%) !important;
+  }
+
+  .tabbrowser-tab[usercontextid="4"] .tab-background::after {
+    background: linear-gradient(to right, #8e24aa, transparent 40%) !important;
+  }
+
 }
 
 /* ------------------- Close and Reset Button Styling ------------------- */
@@ -105,6 +97,7 @@ html:not([zen-sidebar-expanded="true"]):not([zen-single-toolbar="true"])
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    filter: blur(12px) contrast(120%) brightness(150%);
     background: linear-gradient(to right, 
         rgba(139, 10, 10, 0.75), 
         rgba(139, 30, 10, 0) 40%, 
@@ -142,6 +135,11 @@ html:not([zen-sidebar-expanded="true"]):not([zen-single-toolbar="true"])
 .tabbrowser-tab .tab-close-button:hover,
 .tabbrowser-tab .tab-reset-button:hover {
     opacity: 1 !important;
+}
+
+html:not([zen-single-toolbar="true"]):not([zen-sidebar-expanded="true"]) 
+  .tab-close-button {
+  transform: translateY(2px) scale(1.2) !important;
 }
 
 /* ------------------- Pinned and Non-Pinned Tabs Styling ------------------- */
@@ -321,127 +319,117 @@ html:not([zen-sidebar-expanded="true"]):not([zen-single-toolbar="true"])
   box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.055), rgba(0, 0, 0, 0.55)) !important;
 }
 
-/* ----------------------- Tab Hover Gradient ----------------------- */
+/* ---------------- Tab Hover Gradient ---------------- */
 
 .tabbrowser-tab {
-    position: relative;
-    overflow: hidden;
-    border-radius: calc(var(--nebula-border-radius) + 1px);
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--nebula-border-radius) + 1px);
 }
 
 .tabbrowser-tab::before {
-    content: "";
-    position: absolute;
-    inset: 2px; /* Shrinks the effect area */
-    background: linear-gradient(
-        45deg,
-        color-mix(in srgb, var(--zen-primary-color) 5%, black),  
-        color-mix(in srgb, var(--zen-primary-color) 30%, black),  
-        color-mix(in srgb, var(--zen-primary-color) 75%, black),  
-        color-mix(in srgb, var(--zen-primary-color) 100%, black), /* Peak highlight */
-        color-mix(in srgb, var(--zen-primary-color) 50%, black),  
-        color-mix(in srgb, var(--zen-primary-color) 15%, black)  
-    );
-    background-size: 200% 200%;
-    border-radius: var(--nebula-border-radius) !important;
-    clip-path: inset(0 round var(--nebula-border-radius));
-    animation: tab-hover-gradient 3.5s linear infinite;
-    animation-play-state: paused;
-    opacity: 0;
-    filter: blur(10px) brightness(1) contrast(120%);
-    transition: opacity 0.4s ease-in-out;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: var(--nebula-border-radius) !important;
+  clip-path: inset(0 round var(--nebula-border-radius));
+  background: linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--zen-primary-color) 5%, black),
+    color-mix(in srgb, var(--zen-primary-color) 30%, black),
+    color-mix(in srgb, var(--zen-primary-color) 75%, black),
+    color-mix(in srgb, var(--zen-primary-color) 100%, black),
+    color-mix(in srgb, var(--zen-primary-color) 50%, black),
+    color-mix(in srgb, var(--zen-primary-color) 15%, black)
+  );
+  background-size: 200% 200%;
+  filter: blur(10px) brightness(1) contrast(120%);
+  opacity: 0;
+  animation: tab-hover-gradient 3.5s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+  transition: opacity 0.7s ease-in-out, transform 0.2s;
 }
 
-/* ------------------- Gradient Style Variations ------------------- */
-@media (-moz-pref("nebula-glow-gradient", 0)) {
-    .tabbrowser-tab::before {
-        display: none;
-    }
-}
-
-@media (-moz-pref("nebula-glow-gradient", 2)) {
-    .tabbrowser-tab::before {
-        background: linear-gradient(
-            45deg,  
-            light-dark(#dddddd, #ffffff),  
-            light-dark(#eeeeee, #dddddd),  
-            light-dark(#dddddd, #bbbbbb),  
-            light-dark(#ffffff, #000000), /* White <-> Black */
-            light-dark(#eeeeee, #dddddd),  
-            light-dark(#dddddd, #ffffff)  
-        );
-        background-size: 200% 200%;
-        animation: tab-hover-gradient 3.5s linear infinite;
-        animation-play-state: paused;
-    }
-}
-
-@media (-moz-pref("nebula-glow-gradient", 3)) {
-    .tabbrowser-tab::before {
-        background: linear-gradient(45deg, #ff8a00, #e52e71, #7f00ff, #00c9ff, #ff8a00);
-        background-size: 200% 200%;
-        animation: tab-hover-gradient 3.5s linear infinite;
-        animation-play-state: paused;
-    }
+@keyframes tab-hover-gradient {
+  from { background-position: 0% 50%; }
+  to { background-position: 200% 50%; }
 }
 
 .tabbrowser-tab:hover::before {
-    animation-play-state: running;
-    opacity: 0.5;
+  animation-play-state: running;
+  opacity: 0.5;
 }
 
 .tabbrowser-tab:has(.tab-close-button:hover, .tab-reset-button:hover)::before {
-    opacity: 0;
-}
-
-/* ------------------- Gradient Animation ------------------- */
-
-@keyframes tab-hover-gradient {
-    from { background-position: 0% 50%; }
-    to { background-position: 200% 50%; }
-}
-
-/* ------------------- Zen Essentials Container Special Handling ------------------- */
-
-#zen-essentials-container .tabbrowser-tab[selected]::before,
-#zen-essentials-container .tabbrowser-tab[selected]:active::before {
-    opacity: 0 !important;
-}
-
-.tabbrowser-tab::before {
-    transition: opacity 0.7s ease-in-out, transform 0.2s;
+  opacity: 0;
 }
 
 .tabbrowser-tab:active::before {
-    transform: scale(0.95, 0.95) !important;
+  transform: scale(0.95);
 }
 
+#zen-essentials-container .tabbrowser-tab[selected]::before,
+#zen-essentials-container .tabbrowser-tab[selected]:active::before,
 #zen-essentials-container .tabbrowser-tab:active::before {
-    transform: none !important;
+  opacity: 0 !important;
+  transform: none !important;
 }
 
-/* -------------------- Split view outline -------------------------- */
+/* ----------- Glow Gradient Style Variations (Prefs) ----------- */
+
+@media (-moz-pref("nebula-glow-gradient", 0)) {
+  .tabbrowser-tab::before {
+    display: none;
+  }
+}
+
+@media (-moz-pref("nebula-glow-gradient", 2)) {
+  .tabbrowser-tab::before {
+    background: linear-gradient(
+      45deg,
+      light-dark(#dddddd, #ffffff),
+      light-dark(#eeeeee, #dddddd),
+      light-dark(#dddddd, #bbbbbb),
+      light-dark(#ffffff, #000000),
+      light-dark(#eeeeee, #dddddd),
+      light-dark(#dddddd, #ffffff)
+    );
+  }
+}
+
+@media (-moz-pref("nebula-glow-gradient", 3)) {
+  .tabbrowser-tab::before {
+    background: linear-gradient(
+      45deg,
+      #ff8a00,
+      #e52e71,
+      #7f00ff,
+      #00c9ff,
+      #ff8a00
+    );
+  }
+}
+
+/* -------------------- Split View Outline -------------------- */
 
 #tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer {
-  outline: none !important; /* Remove default outline */
-  box-shadow: 0 0 0 2px light-dark(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0)), 
-              0 4px 10px light-dark(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) !important;
+  outline: none !important;
+  box-shadow:
+    0 0 0 2px light-dark(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0)),
+    0 4px 10px light-dark(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) !important;
   transition: box-shadow 0.35s ease !important;
 }
 
 #tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer.deck-selected {
-box-shadow: 
-  0 0 0 2px color-mix(in srgb, var(--zen-primary-color) 50%, transparent),
-  0 4px 10px color-mix(in srgb, var(--zen-primary-color) 30%, transparent) !important;
-
-
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--zen-primary-color) 50%, transparent),
+    0 4px 10px color-mix(in srgb, var(--zen-primary-color) 30%, transparent) !important;
 }
 
-/* ------------------ Split View Tab Group Styling -------------------- */
+/* ------------- Split View Tab Group Styling ------------- */
 
 tab-group[split-view-group] {
-  
   background-color: transparent !important;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0) !important;
   border-radius: 13px !important;
@@ -449,62 +437,56 @@ tab-group[split-view-group] {
   flex-direction: column;
   padding: 2px !important;
   transform: scale(1);
-  transition: background-color 0.3s ease-out, 
-              box-shadow 0.3s ease-out, 
-              transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+  transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.3s ease-out,
+    transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+}
 
-  /* This bar appears on the left when the group is inactive. */
-  &::after {
-    content: '';
-    position: absolute;
-    top: 6px;
-    bottom: 6px;
-    left: 2px;
-    width: 3px;
-    background-color: var(--tab-selected-bgcolor, #0060df);
-    border-radius: 2px;
-    transition: width 0.2s ease-out, opacity 0.2s ease-out;
-  }
+tab-group[split-view-group]::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 2px;
+  width: 3px;
+  background-color: var(--tab-selected-bgcolor, #0060df);
+  border-radius: 2px;
+  transition: width 0.2s ease-out, opacity 0.2s ease-out;
+}
 
-  /* --- Hover State --- */
-  &:hover {
-    background-color: light-dark(rgba(255,255,255,0.45), rgba(0,0,0,0.45)) !important;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.55) !important;
-  }
-  
-  /* Applies when a tab inside the group is the active/selected tab. */
-  &:has(.tabbrowser-tab:is([selected="true"], [visuallyselected="true"])) {
-    background-color: light-dark(rgba(255,255,255,0.55), rgba(0,0,0,0.35)) !important;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.55) !important;
-  }
-  
-  &:active {
-    transform: scale(0.95) !important;
-    transition-duration: 0.1s !important;
-    transition-timing-function: ease-out !important;
-  }
+tab-group[split-view-group]:hover {
+  background-color: light-dark(rgba(255,255,255,0.45), rgba(0,0,0,0.45)) !important;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.55) !important;
+}
 
-  &:is(:hover, :has(.tabbrowser-tab:is([selected="true"], [visuallyselected="true"], [multiselected="true"])), :has(> tab-group-tab[selected="true"])) {
-    &::after {
-      width: 0;
-      opacity: 0;
-    }
-  }
+tab-group[split-view-group]:has(.tabbrowser-tab:is([selected], [visuallyselected])) {
+  background-color: light-dark(rgba(255,255,255,0.55), rgba(0,0,0,0.35)) !important;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.55) !important;
+}
 
-  & .tabbrowser-tab {
-    .tab-background {
-      border-radius: 12px !important;
-    }
+tab-group[split-view-group]:active {
+  transform: scale(0.95) !important;
+  transition-duration: 0.1s !important;
+  transition-timing-function: ease-out !important;
+}
 
-    .tab-close-button {
-      border-radius: 10px !important;
-    }
+tab-group[split-view-group]:is(:hover, :has(.tabbrowser-tab:is([selected], [visuallyselected], [multiselected])), :has(> tab-group-tab[selected]))::after {
+  width: 0;
+  opacity: 0;
+}
 
-    &:not(:last-child)::after {
-      width: 0 !important;
-      height: 0 !important;
-    }
-  }
+tab-group[split-view-group] .tabbrowser-tab .tab-background {
+  border-radius: 12px !important;
+}
+
+tab-group[split-view-group] .tabbrowser-tab .tab-close-button {
+  border-radius: 10px !important;
+}
+
+tab-group[split-view-group] .tabbrowser-tab:not(:last-child)::after {
+  width: 0 !important;
+  height: 0 !important;
 }
 
 tab-group[split-view-group="true"] .tab-close-button {
