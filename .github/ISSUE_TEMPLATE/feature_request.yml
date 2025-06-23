@@ -1,0 +1,60 @@
+name: 💫 Enhancement Request
+description: Suggest a new feature or improvement for Nebula.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <h1 align="center">Nebula Enhancement Request</h1>
+
+        <p align="center"><em>Have an idea to improve Nebula? We’d love to hear it!</em></p>
+
+        > [!NOTE]  
+        > - Check existing issues to avoid duplicates.  
+        > - Enhancements should align with Nebula’s minimalist and performance-first goals.  
+        > - The team may not accept every request, but thoughtful proposals are always appreciated.  
+        > - If your suggestion involves a Zen Mod, please note that support may vary.
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: Whats your idea?
+      description: Clearly describe your enhancement or feature request.
+      placeholder: Id like to see a new...
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why is this useful?
+      description: Explain how this feature improves the Nebula experience for you or others.
+      placeholder: This helps because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context or mockups
+      description: If applicable, provide screenshots, sketches, or comparisons to other tools/themes.
+      placeholder: Optional: attach images or notes here.
+
+  - type: input
+    id: nebula-version
+    attributes:
+      label: Nebula Version
+      description: The version you are currently using.
+      placeholder: e.g., v3.0.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How important is this?
+      options:
+        - Nice to have
+        - Important for workflow
+        - Blocking me to use Nebula right now
+    validations:
+      required: true
