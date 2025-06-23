@@ -4,7 +4,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        # Nebula
+        <h1 align="center">Nebula</h1>
         
         <p align="center"><em>Thank you for filing a bug report!</em></p>
 
