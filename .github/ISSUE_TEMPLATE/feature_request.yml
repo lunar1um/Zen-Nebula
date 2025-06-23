@@ -5,8 +5,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## 💫 Nebula Enhancement Request
-        *Have an idea to improve Nebula? We’d love to hear it!*
+        <h1 align="center">Nebula</h1>
+
+        <p align="center"><em>Have an idea to improve Nebula? We’d love to hear it!</em></p>
+
 
         > [!NOTE]
         > - Please check existing issues to avoid duplicates.
