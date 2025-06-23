@@ -1,6 +1,6 @@
 name: 💫 Enhancement Request
 description: Suggest a new feature or improvement for Nebula.
-labels: ["Enchantment"]
+labels: ["Enhancement"]
 body:
   - type: markdown
     attributes:
