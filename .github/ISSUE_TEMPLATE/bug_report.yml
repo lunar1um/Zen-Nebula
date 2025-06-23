@@ -57,13 +57,23 @@ body:
         If applicable, add screenshots or videos to help explain your problem.
         
   - type: input
-    id: Nebula version, Zen version
+    id: nebula-version
     attributes:
-      label: Version
-      description: What version of Nebula are you using with what version of Zen Browser?
-      placeholder: v3, 1.13.2b
+      label: Nebula Version
+      description: What version of Nebula are you using?
+      placeholder: e.g., v3.0.0
     validations:
       required: true
+
+  - type: input
+    id: zen-version
+    attributes:
+      label: Zen Browser Version
+      description: What version of Zen Browser are you using?
+      placeholder: e.g., 1.13.2b
+    validations:
+      required: true
+
       
   - type: dropdown
     id: platform
