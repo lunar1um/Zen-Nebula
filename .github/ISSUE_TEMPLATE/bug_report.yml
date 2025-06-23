@@ -1,76 +1,77 @@
-name: 🐛 Bug Report
+name: "🐛 Bug Report"
 description: Report a bug or unexpected behavior in Nebula.
+title: "[Bug]: "
+labels: ["bug", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        <h1 align="center">Nebula</h1>
-
-        <div align="center">
-          <a href="https://zen-browser.app/">
-            <img width="80" alt="Zen Browser" src="https://github.com/user-attachments/assets/d6ab3ddf-6630-4062-92d0-22497d2a3f9a" />
-          </a>
-        </div>
-
-        <p align="center"><em>Thank you for filing a bug report!</em></p>
+        <h1 align="center">Nebula Bug Report</h1>
+        <p align="center">Thank you for taking the time to help us improve Nebula!</p>
 
         > [!IMPORTANT]
-        > - Use clear and descriptive titles.  
-        > - Search existing issues to avoid duplicates.  
-        > - For feature/enhancement requests, use the appropriate template.  
-        > - Fill out all required fields for better issue tracking.  
-        > - Include screenshots or recordings when possible.  
-        > - Nebula does not support specific Zen Mods. Please test without them first.
+        > - Please provide a clear and descriptive title.
+        > - Search [existing issues](https://github.com/your-repo/issues) to avoid creating a duplicate.
+        > - Ensure this is a bug, not a feature request.
+        > - This template is for bugs in Nebula only. Test without any other mods first.
 
   - type: checkboxes
     id: prechecks
     attributes:
-      label: ⚠️ Before You Submit
-      description: Confirm these points before filing your report.
+      label: "⚠️ Preliminary Checks"
+      description: Please confirm the following before submitting.
       options:
-        - label: I have read and understood the important notes above.
+        - label: I have read and understood the contribution guidelines.
           required: true
-        - label: I have tested this without any Zen Mods enabled.
+        - label: I have searched the existing issues and this is not a duplicate.
           required: true
-        - label: This is a bug report, not a feature request.
+        - label: I have tested this without any other Zen Mods enabled.
           required: true
-        - label: I can confirm this issue only occurs with Nebula enabled.
+        - label: I can confirm this bug is reproducible with Nebula and does not occur when Nebula is disabled.
           required: true
 
   - type: textarea
-    id: description
+    id: current-behavior
     attributes:
-      label: What happened?
-      description: Describe the bug in detail. Include what you expected to happen.
-      placeholder: I encountered a bug where...
+      label: Current Behavior
+      description: A clear and concise description of what is happening.
+      placeholder: "When I do [...], the application crashes / the button is misaligned."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: "I expected the application to [...] without crashing / the button to be centered."
     validations:
       required: true
 
   - type: textarea
     id: steps
     attributes:
-      label: Steps to reproduce
-      description: Help us reproduce the issue. List steps in order.
+      label: Steps to Reproduce
+      description: Provide a clear set of steps to help us reproduce the bug. Include any specific settings or configurations if relevant.
       placeholder: |
-        1. Open Zen Browser  
-        2. Enable Compact Mode  
-        3. Click on the tab switcher  
-        4. Observe the glitch
+        1. Open Zen Browser with a fresh profile.
+        2. Go to Settings -> Appearance.
+        3. Enable 'Compact Mode'.
+        4. Open three new tabs.
+        5. Observe the tab layout overlapping the window controls.
     validations:
-      required: false
+      required: true
 
-  - type: textarea
-    id: media
+  - type: markdown
     attributes:
-      label: Screenshots / Videos
-      description: Attach screenshots or recordings to help illustrate the problem.
+      value: "### Environment"
 
   - type: input
     id: nebula-version
     attributes:
       label: Nebula Version
-      description: The version of Nebula you're using (see the About section).
-      placeholder: e.g., v3.0.0
+      description: You can find this in the Nebula settings or 'About' page.
+      placeholder: "e.g., v3.1.0"
     validations:
       required: true
 
@@ -78,16 +79,16 @@ body:
     id: zen-version
     attributes:
       label: Zen Browser Version
-      description: The version of Zen Browser you're running.
-      placeholder: e.g., 1.13.2b
+      description: The version of the browser you are using.
+      placeholder: "e.g., 1.14.0"
     validations:
       required: true
 
   - type: dropdown
     id: platform
     attributes:
-      label: Platform
-      description: Select all platforms where the issue occurs.
+      label: Operating System
+      description: Select all platforms where you've seen this issue.
       multiple: true
       options:
         - Windows - x64
@@ -97,15 +98,16 @@ body:
         - Linux (AppImage)
         - Linux (Flatpak)
         - Linux (Tarball)
-        - Other
+        - Other (please specify in 'Additional Context')
     validations:
       required: true
 
   - type: dropdown
     id: area
     attributes:
-      label: Affected Component
-      description: What part of Nebula is affected?
+      label: Affected Component(s)
+      description: What part of Nebula is affected? Select all that apply.
+      multiple: true
       options:
         - Bookmarks
         - Compact Mode
@@ -125,3 +127,15 @@ body:
         - Other
     validations:
       required: true
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots or Videos
+      description: "If applicable, add screenshots, videos, or GIFs to help explain your problem. You can drag and drop files directly into this box."
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here, such as workarounds you've discovered or potential causes.
