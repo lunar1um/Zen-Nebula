@@ -38,6 +38,7 @@ body:
       label: Context or mockups
       description: If applicable, provide screenshots, sketches, or comparisons to other tools/themes.
       placeholder: Optional: attach images or notes here.
+      required: false
 
   - type: input
     id: nebula-version
