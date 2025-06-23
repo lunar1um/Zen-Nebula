@@ -1,6 +1,15 @@
 name: 💫 Enhancement Request
 description: Suggest a new feature or improvement for Nebula.
 body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's your idea?
+      description: Clearly describe your enhancement or feature request.
+      placeholder: I'd like to see a new...
+    validations:
+      required: true
+
   - type: markdown
     attributes:
       value: |
@@ -8,23 +17,15 @@ body:
 
         <p align="center"><em>Have an idea to improve Nebula? We’d love to hear it!</em></p>
 
----
-**Note:**  
-• Check existing issues to avoid duplicates.  
-• Enhancements should align with Nebula’s minimalist and performance-first goals.  
-• The team may not accept every request, but thoughtful proposals are always appreciated.  
-• If your suggestion involves a Zen Mod, please mention it (support may vary).
----
+        ---
 
+        **Note:**  
+        • Check existing issues to avoid duplicates.  
+        • Enhancements should align with Nebula’s minimalist and performance-first goals.  
+        • The team may not accept every request, but thoughtful proposals are always appreciated.  
+        • If your suggestion involves a Zen Mod, please mention it (support may vary).
 
-  - type: textarea
-    id: idea
-    attributes:
-      label: Whats your idea?
-      description: Clearly describe your enhancement or feature request.
-      placeholder: Id like to see a new...
-    validations:
-      required: true
+        ---
 
   - type: textarea
     id: motivation
@@ -58,6 +59,6 @@ body:
       options:
         - Nice to have
         - Important for workflow
-        - Blocking me to use Nebula right now
+        - Blocking my use of Nebula right now
     validations:
       required: true
