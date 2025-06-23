@@ -1,48 +1,47 @@
 name: 💫 Enhancement Request
 description: Suggest a new feature or improvement for Nebula.
+title: "[Enhancement]: "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💫 Nebula Enhancement Request
+        *Have an idea to improve Nebula? We’d love to hear it!*
+
+        > [!NOTE]
+        > - Please check existing issues to avoid duplicates.
+        > - We value enhancements that align with Nebula’s minimalist and performance-first goals.
+
   - type: textarea
     id: idea
     attributes:
       label: What's your idea?
-      description: Clearly describe your enhancement or feature request.
-      placeholder: I'd like to see a new...
+      description: Please describe your enhancement or feature request with as much detail as possible.
+      placeholder: I'd like to see a new feature that...
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: >
-        <h1 align="center">Nebula Enhancement Request</h1>
-
-        <p align="center"><em>Have an idea to improve Nebula? We’d love to hear it!</em></p>
-
-> [!NOTE]  
-> - Check existing issues to avoid duplicates.  
-> - Enhancements should align with Nebula’s minimalist and performance-first goals.  
-
 
   - type: textarea
     id: motivation
     attributes:
       label: Why is this useful?
-      description: Explain how this feature improves the Nebula experience for you or others.
-      placeholder: This helps because...
+      description: Explain how this feature would improve the Nebula experience for you or others.
+      placeholder: This would help because...
     validations:
       required: true
 
   - type: textarea
     id: context
     attributes:
-      label: Context or mockups
-      description: If applicable, provide screenshots, sketches, or comparisons to other tools/themes.
-      placeholder: Optional - attach images or notes here.
+      label: Any additional context or mockups?
+      description: If applicable, provide screenshots, sketches, or comparisons to other tools. You can drag and drop images here.
+      placeholder: Optional - add any extra notes or visuals here.
 
   - type: input
     id: nebula-version
     attributes:
       label: Nebula Version
-      description: The version you are currently using.
+      description: Which version of Nebula are you using?
       placeholder: e.g., v3.0.0
     validations:
       required: true
@@ -50,10 +49,11 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: How important is this?
+      label: How important is this to you?
+      description: This helps us prioritize incoming requests.
       options:
         - Nice to have
-        - Important for workflow
-        - Blocking my use of Nebula right now
+        - Important for my workflow
+        - Blocking my use of Nebula
     validations:
       required: true
