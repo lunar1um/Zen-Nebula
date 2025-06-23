@@ -25,7 +25,7 @@ body:
   - type: checkboxes
     id: prechecks
     attributes:
-      label: ✅ Before You Submit
+      label: ⚠️ Before You Submit
       description: Confirm these points before filing your report.
       options:
         - label: I have read and understood the important notes above.
