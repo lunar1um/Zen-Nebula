@@ -8,9 +8,7 @@ contact_links:
 issue_templates:
   - name: "🐛 Bug Report"
     description: "Report a bug with Nebula"
-    labels: ["bug"]
     file: bug_report.yml
   - name: "✨ Feature Request"
     description: "Request a new feature or improvement"
-    labels: ["Feature request"]
     file: feature_request.yml
