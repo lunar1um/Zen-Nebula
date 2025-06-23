@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 💬 Community Support (Discord Thread)
+    url: https://discord.com/channels/1088172780480114748/1347445886384345089
+    about: Join the Nebula Discord thread to ask questions or get help from us.
+
+issue_templates:
+  - name: "🐛 Bug Report"
+    description: "Report a bug with Nebula"
+    file: bug_report.yml
+  - name: "✨ Feature Request"
+    description: "Request a new feature or improvement"
+    file: feature_request.yml
