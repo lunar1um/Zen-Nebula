@@ -1,12 +1,11 @@
 /* ------------------------- GENERAL ZEN UI ------------------------- */
-/* main ui tint */
+
+/* Main UI tint */
 #zen-main-app-wrapper {
   background: var(--nebula-ui-tint) !important;
 }
 
-
-
-/* website tint */
+/* Website background tint */
 browser[transparent='true'] {
   background: var(--nebula-website-tint) !important;
 }
@@ -16,30 +15,33 @@ browser[transparent='true'] {
   display: none !important;
 }
 
+/* Global overrides */
 :root {
-  --attention-dot-color: transparent !important; /* remove attention dot */
-  --zen-themed-toolbar-bg-transparent: transparent !important; /* fix for transparency */
+  --attention-dot-color: transparent !important;
+  --zen-themed-toolbar-bg-transparent: transparent !important;
 }
 
-/* Required for blur rendering */
+/* Ensure blur rendering works */
 browser {
-    will-change: transform !important;
+  will-change: transform !important;
 }
 
-/* --------------------- TABS: NO SHADOW --------------------- */
 
-hbox.browserSidebarContainer,
-#zen-tabbox-wrapper {
-  @media (-moz-pref("nebula-tabs-no-shadow")) {
+/* ---------------------- TABS: NO SHADOW ---------------------- */
+
+@media (-moz-pref("nebula-tabs-no-shadow")) {
+  hbox.browserSidebarContainer,
+  #zen-tabbox-wrapper {
     box-shadow: none !important;
   }
 }
 
-/* ---------------------- NOGAPS MOD ------------------------ */
+
+/* ---------------------- NOGAPS MOD ---------------------- */
 
 @media (-moz-pref("nebula-nogaps-mod")) {
   [zen-single-toolbar="true"]:not(:has(tab-group[split-view-group] .tabbrowser-tab:is([selected="true"], [visuallyselected="true"]))) {
-    
+
     #zen-appcontent-wrapper {
       position: relative;
     }
@@ -50,7 +52,10 @@ hbox.browserSidebarContainer,
       height: 50px;
       backdrop-filter: blur(30px) saturate(110%) contrast(110%);
       background: var(--zen-main-browser-background) !important;
-      border-bottom: 1.7px solid light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+      border-bottom: 1.7px solid light-dark(
+        rgba(0, 0, 0, 0.2),
+        rgba(255, 255, 255, 0.1)
+      );
     }
 
     #zen-tabbox-wrapper {
@@ -64,43 +69,44 @@ hbox.browserSidebarContainer,
   }
 }
 
-/* ----------------- NOGAPS COMPACT MOD ----------------- */
+/* ------------------ NOGAPS COMPACT MOD ------------------ */
 
 @media (-moz-bool-pref: "nebula-nogaps-compact-mod") {
   :root[zen-compact-mode="true"]:not([customizing]) {
-      #zen-appcontent-wrapper:not(:has(#tabbrowser-tabpanels[zen-split-view]), :has(#zen-sidebar-web-panel:not([hidden]):not([pinned]))) {
+    #zen-appcontent-wrapper:not(:has(#tabbrowser-tabpanels[zen-split-view]), :has(#zen-sidebar-web-panel:not([hidden]):not([pinned]))) {
+      margin: 0 !important;
+
+      #zen-tabbox-wrapper {
+        margin: 0 !important;
+
+        .browserSidebarContainer,
+        browser {
           margin: 0 !important;
-
-          #zen-tabbox-wrapper {
-              margin: 0 !important;
-          }
-
-          #zen-tabbox-wrapper .browserSidebarContainer,
-          #zen-tabbox-wrapper browser {
-              margin: 0 !important;
-              border-radius: 0 !important;
-          }
-
-          @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-            #zen-appcontent-wrapper {
-                position: relative;
-            }
-
-    #zen-appcontent-navbar-wrapper {
-      position: absolute;
-      width: 100% !important;
-      height: 50px; /* Optional: thicker navbar */
-      backdrop-filter: blur(30px) saturate(110%) contrast(110%);
-      background: var(--zen-main-browser-background) !important;
-      border-bottom: 1.7px solid light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
-    }
-          }
+          border-radius: 0 !important;
+        }
       }
+
+      :root[zen-single-toolbar="true"] & {
+        position: relative;
+      }
+
+      #zen-appcontent-navbar-wrapper:is(:root[zen-single-toolbar="true"] *) {
+        position: absolute;
+        width: 100% !important;
+        height: 50px;
+        backdrop-filter: blur(30px) saturate(110%) contrast(110%);
+        background: var(--zen-main-browser-background) !important;
+        border-bottom: 1.7px solid light-dark(
+          rgba(0, 0, 0, 0.2),
+          rgba(255, 255, 255, 0.1)
+        );
+      }
+    }
   }
 }
 
+
 /* ------------------- FLOATING STATUSBAR ------------------- */
-/* Credit to the mod */
 
 #statuspanel {
   margin: 10px !important;

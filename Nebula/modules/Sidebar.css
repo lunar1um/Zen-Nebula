@@ -22,11 +22,6 @@
 
 /* -------------------------- COMPACT SIDEBAR -------------------------- */
 
-:root[zen-compact-mode="true"] #sidebar {
-    width: var(--nebula-sidebar-width) !important;
-    min-width: var(--nebula-sidebar-width) !important;
-}
-
 /* Fix for twilight acrylic */
 #navigator-toolbox:not([animate='true']) #titlebar {
   position: relative;
@@ -416,8 +411,8 @@ scrollbox {
    }
 }
 
-#PersonalToolbar {
-  padding-bottom: 3px !important; /* Adjust value as needed */
+#PersonalToolbar:not([collapsed="true"]) {
+  padding-bottom: 3px !important;
 }
 
  #PersonalToolbar toolbarbutton:hover {

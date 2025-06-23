@@ -79,6 +79,9 @@ without searching through the code directly */
     /* 9. If you want to disable nebula's container styling:
         Go to about:config and add a "boolean" "nebula-disable-container-styling" and set it to true */
 
+    /* 10. If you want to disable nebula's audio indicator styling:
+        Go to about:config and add a "boolean" "nebula-default-sound-indicator" and set it to true */
+
 :root {
 --nebula-border-radius: 13px; /* This will change roundness of everything in Nebula (DEFAULT: 13px) */
 --nebula-website-tint: light-dark(rgba(255,255,255,0),rgba(0,0,0,0)); /* Edit the color values to change the tint on transparent websites */

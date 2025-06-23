@@ -1,6 +1,6 @@
 /* ------------------------- QUIETIFY SOUND ICON ------------------------- */
 
-@media not (-moz-pref("nebula.tab.default-audio-indicator")) {
+@media not (-moz-pref("nebula-default-sound-indicator")) {
   
     .tab-audio-button {
     display: none !important;
