@@ -31,20 +31,11 @@ body:
           required: true
 
   - type: textarea
-    id: current-behavior
+    id: description
     attributes:
-      label: Current Behavior
-      description: A clear and concise description of what is happening.
-      placeholder: "When I do [...], the application crashes / the button is misaligned."
-    validations:
-      required: true
-
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
-      placeholder: "I expected the application to [...] without crashing / the button to be centered."
+      label: What happened?
+      description: Describe the bug in detail. Include what you expected to happen.
+      placeholder: I encountered a bug where...
     validations:
       required: true
 
@@ -54,13 +45,12 @@ body:
       label: Steps to Reproduce
       description: Provide a clear set of steps to help us reproduce the bug. Include any specific settings or configurations if relevant.
       placeholder: |
-        1. Open Zen Browser with a fresh profile.
-        2. Go to Settings -> Appearance.
-        3. Enable 'Compact Mode'.
-        4. Open three new tabs.
-        5. Observe the tab layout overlapping the window controls.
+        1. Open New tab
+        2. Enable Compact Mode  
+        3. Switch tabs
+        4. Observe the glitch
     validations:
-      required: true
+      required: false
 
   - type: markdown
     attributes:
@@ -115,7 +105,7 @@ body:
         - Extensions
         - Glance
         - Miniplayer
-        - Mods / Themes
+        - Other Mods / Themes
         - Performance
         - Settings
         - Split View
