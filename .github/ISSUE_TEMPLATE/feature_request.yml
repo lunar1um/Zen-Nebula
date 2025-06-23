@@ -12,7 +12,7 @@ body:
 
   - type: markdown
     attributes:
-      value: |
+      value: >
         <h1 align="center">Nebula Enhancement Request</h1>
 
         <p align="center"><em>Have an idea to improve Nebula? We’d love to hear it!</em></p>
