@@ -1,5 +1,5 @@
-name: Bug Report
-description: File a bug report for Nebula
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior in Nebula.
 body:
   - type: markdown
     attributes:
@@ -7,65 +7,69 @@ body:
         <h1 align="center">Nebula</h1>
 
         <div align="center">
-            <a href="https://zen-browser.app/">
-                <img width="80" alt="zen-badge-dark" src="https://github.com/user-attachments/assets/d6ab3ddf-6630-4062-92d0-22497d2a3f9a" />
-            </a>
+          <a href="https://zen-browser.app/">
+            <img width="80" alt="Zen Browser" src="https://github.com/user-attachments/assets/d6ab3ddf-6630-4062-92d0-22497d2a3f9a" />
+          </a>
         </div>
 
-        <p align="center"><em>Thank you for filing a bug report!</em></p>
+        <p align="center"><em>Thank you for helping improve Nebula by reporting bugs!</em></p>
 
-        > [!IMPORTANT]  
-        > - Please provide descriptive titles. Bad titles do more harm than good.  
-        > - Please search existing issues to avoid creating duplicates.  
-        > - For enhancement requests, please use the other issue template.  
-        > - Please fill out the template below to the best of your ability.  
-        > - Please describe the issue clearly and include visual aids if possible.  
-        > - Nebula does not support specific Zen Mods.
-
+        > [!IMPORTANT]
+        > - Use clear and descriptive titles.  
+        > - Search existing issues to avoid duplicates.  
+        > - For feature/enhancement requests, use the appropriate template.  
+        > - Fill out all required fields for better issue tracking.  
+        > - Include screenshots or recordings when possible.  
+        > - Nebula does not support specific Zen Mods. Please test without them first.
 
   - type: checkboxes
-    id: captchas
+    id: prechecks
     attributes:
-      label: Preliminary Checks
-      description: Please confirm the following before submitting a bug report. This helps us triage and resolve issues more efficiently.
+      label: ✅ Before You Submit
+      description: Confirm these points before filing your report.
       options:
-        - label: I have read and understood the important section above.
+        - label: I have read and understood the important notes above.
           required: true
-        - label: I have tried replicating this issue without any Zen Mods enabled
+        - label: I have tested this without any Zen Mods enabled.
           required: true
-        - label: I am not filing an enhancement (Feature) request.
+        - label: This is a bug report, not a feature request.
           required: true
-        - label: I have checked that this issue cant be reproduced without Nebula.
+        - label: I can confirm this issue only occurs with Nebula enabled.
           required: true
+
   - type: textarea
-    id: what-happened
+    id: description
     attributes:
       label: What happened?
-      description: Describe the bug clearly and concisely.
-      placeholder: Tell us what you see!
+      description: Describe the bug in detail. Include what you expected to happen.
+      placeholder: I encountered a bug where...
     validations:
       required: true
-      
+
   - type: textarea
-    id: how-to-reproduce
+    id: steps
     attributes:
       label: Steps to reproduce
-      description: If you can, then please provide numbered steps to reproduce this issue so developers can replicate them easily.
+      description: Help us reproduce the issue. List steps in order.
+      placeholder: |
+        1. Open Zen Browser  
+        2. Enable Compact Mode  
+        3. Click on the tab switcher  
+        4. Observe the glitch
     validations:
       required: false
-      
+
   - type: textarea
-    id: screenshots
+    id: media
     attributes:
-      label: Screenshots and videos
-      description: |
-        If applicable, add screenshots or videos to help explain your problem.
-        
+      label: Screenshots / Videos
+      description: Attach screenshots or recordings to help illustrate the problem.
+
   - type: input
     id: nebula-version
     attributes:
       label: Nebula Version
-      description: What version of Nebula are you using?
+      description: The version of Nebula you're using (see the About section).
       placeholder: e.g., v3.0.0
     validations:
       required: true
@@ -74,49 +78,50 @@ body:
     id: zen-version
     attributes:
       label: Zen Browser Version
-      description: What version of Zen Browser are you using?
+      description: The version of Zen Browser you're running.
       placeholder: e.g., 1.13.2b
     validations:
       required: true
 
-      
   - type: dropdown
     id: platform
     attributes:
-      label: What platform are you seeing the problem on?
+      label: Platform
+      description: Select all platforms where the issue occurs.
       multiple: true
       options:
+        - Windows - x64
+        - Windows - aarch64
+        - macOS - Intel
+        - macOS - Apple Silicon
         - Linux (AppImage)
         - Linux (Flatpak)
         - Linux (Tarball)
-        - macOS - aarch64 (Apple Silicon)
-        - macOS - Intel
-        - Windows - aarch64
-        - Windows - x64
         - Other
     validations:
       required: true
-      
+
   - type: dropdown
-    id: component
+    id: area
     attributes:
-      label: What component is this issue related to?
+      label: Affected Component
+      description: What part of Nebula is affected?
       options:
-        - Other
         - Bookmarks
         - Compact Mode
         - Customizable UI / Toolbars
         - Extensions
         - Glance
         - Miniplayer
-        - Other Mods / Themes
+        - Mods / Themes
         - Performance
         - Settings
         - Split View
         - Tab Folders
-        - Tab unloading
+        - Tab Unloading
         - Tabs
         - URL Bar
         - Workspaces
+        - Other
     validations:
       required: true
