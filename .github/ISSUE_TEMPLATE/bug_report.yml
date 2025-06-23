@@ -13,14 +13,14 @@ body:
         </div>
 
         <p align="center"><em>Thank you for filing a bug report!</em></p>
-        > [!IMPORTANT]
+        
+ > [!IMPORTANT]
         > - Please provide descriptive titles. Bad titles do more harm than good.
         > - Please search existing issues to avoid creating duplicates.
-        > - For enhancement requests, please use the other issue template
+        > - For enhancement requests, please use the other issue template.
         > - Please fill out the template below to the best of your ability.
-        > - Please describe the issue as much as possible and provide steps to reproduce it along with visual aids if possible.
-        > - We can't make Nebula support specific Zen Mods if that's what you're asking for.
-
+        > - Please describe the issue clearly and include visual aids if possible.
+        > - Nebula does not support specific Zen Mods.
   # ... (the rest of your template follows as-is)
 
   - type: checkboxes
