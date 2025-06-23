@@ -12,4 +12,3 @@ issue_templates:
   - name: "✨ Feature Request"
     description: "Request a new feature or improvement"
     file: feature_request.yml
-    labels: ["Enhancement"]
