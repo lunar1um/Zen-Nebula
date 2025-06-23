@@ -8,11 +8,14 @@ body:
 
         <p align="center"><em>Have an idea to improve Nebula? We’d love to hear it!</em></p>
 
-        > [!NOTE]  
-        > - Check existing issues to avoid duplicates.  
-        > - Enhancements should align with Nebula’s minimalist and performance-first goals.  
-        > - The team may not accept every request, but thoughtful proposals are always appreciated.  
-        > - If your suggestion involves a Zen Mod, please note that support may vary.
+---
+**Note:**  
+• Check existing issues to avoid duplicates.  
+• Enhancements should align with Nebula’s minimalist and performance-first goals.  
+• The team may not accept every request, but thoughtful proposals are always appreciated.  
+• If your suggestion involves a Zen Mod, please mention it (support may vary).
+---
+
 
   - type: textarea
     id: idea
