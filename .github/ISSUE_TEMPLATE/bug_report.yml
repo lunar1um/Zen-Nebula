@@ -1,6 +1,6 @@
 name: "🐛 Bug Report"
 description: Report a bug or unexpected behavior in Nebula.
-labels: ["bug"]
+labels: ["Bug"]
 body:
   - type: markdown
     attributes:
