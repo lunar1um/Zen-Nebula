@@ -186,11 +186,6 @@
     },
     {
         "type": "checkbox",
-        "property": "nebula-compact-mode-no-sidebar-bg",
-        "label": "Disables background for compact sidebar when sites are transparent."
-    },
-    {
-        "type": "checkbox",
         "property": "nebula-pinned-tabs-bg",
         "label": "Removes the background on Pinned tabs."
     },
