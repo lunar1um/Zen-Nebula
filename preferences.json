@@ -163,6 +163,32 @@
             }
         ]
     },
+        {
+        "type": "separator",
+        "label": "sound buttons style"
+    },
+    {
+        "type": "dropdown",
+        "value": "number",
+        "property": "nebula-default-sound-style",
+        "label": "sound buttons style.",
+        "default": 1,
+        "placeholder": false,
+        "options": [
+            {
+                "label": "Disable nebula's audio indicator styling",
+                "value": 0
+            },
+            {
+                "label": "Default",
+                "value": 1
+            },
+            {
+                "label": "Floating at the upper right corner of Favicon in a smaller size",
+                "value": 2
+            }
+        ]
+    },
     {
         "type": "text",
         "label": "**Other Settings**",
@@ -183,6 +209,11 @@
         "type": "checkbox",
         "property": "nebula-nogaps-compact-mod",
         "label": "Enables Marginless Compact mod."
+    },
+    {
+        "type": "checkbox",
+        "property": "nebula-compact-mode-no-sidebar-bg",
+        "label": "Disables background for compact sidebar when sites are transparent."
     },
     {
         "type": "checkbox",

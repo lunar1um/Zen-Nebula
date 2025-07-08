@@ -24,9 +24,6 @@
     border-radius: calc(var(--nebula-border-radius) - 5px) !important;
 
 }
-html[zen-single-toolbar="true"] #urlbar {
-  margin-bottom: -4px !important;
-}
 
 /* URL bar background - default state */
 #urlbar-background {

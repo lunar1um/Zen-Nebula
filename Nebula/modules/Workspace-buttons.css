@@ -53,6 +53,9 @@ button.zen-workspace-creation-profile {
 }
 
 /* ------------------------------ Workspace Button Styles ------------------------------ */
+.zen-current-workspace-indicator-name {
+  font-weight: 600;
+}
 
 #zen-workspaces-button toolbarbutton[dragged="true"] {
   outline: none !important;
