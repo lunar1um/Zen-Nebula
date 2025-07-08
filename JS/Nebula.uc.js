@@ -210,6 +210,18 @@
       }
 
       const rect = this.titlebar.getBoundingClientRect();
+      const style = getComputedStyle(this.titlebar);
+
+      const isReallyVisible = (
+        rect.width > 5 &&
+        rect.height > 5 &&
+        style.display !== "none" &&
+        style.visibility !== "hidden" &&
+        style.opacity !== "0" &&
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight
+      );
+
       const changed = (
         rect.top !== this.lastRect.top ||
         rect.left !== this.lastRect.left ||
@@ -224,14 +236,7 @@
         height: rect.height
       };
 
-      const isVisible = (
-        rect.width > 5 &&
-        rect.height > 5 &&
-        rect.top >= 0 &&
-        rect.bottom <= window.innerHeight
-      );
-
-      if (isVisible) {
+      if (isReallyVisible) {
         Object.assign(this.overlay.style, {
           top: `${rect.top + window.scrollY}px`,
           left: `${rect.left + window.scrollX}px`,
