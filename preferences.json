@@ -1,244 +1,186 @@
 [
-    {
-        "type": "text",
-        "label": "**General Settings**",
-        "margin": "10px 0 15px 0",
-        "size": "20px"
-    },
-    {
-        "type": "separator",
-        "label": "Tab Animations"
-    },
-    {
-        "type": "dropdown",
-        "value": "number",
-        "property": "nebula-tab-switch-animation",
-        "label": "Tab switch animation.",
-        "default": 1,
-        "placeholder": false,
-        "options": [
-            {
-                "label": "No Animation",
-                "value": 0
-            },
-            {
-                "label": "Default",
-                "value": 1
-            },
-            {
-                "label": "Slightly Bouncy",
-                "value": 3
-            },
-            {
-                "label": "More Bouncy",
-                "value": 2
-            },
-            {
-                "label": "Crossfade, no blur",
-                "value": 4
-            },
-            {
-                "label": "Zoom out",
-                "value": 5
-            }
-        ]
-    },
-    {
-        "type": "dropdown",
-        "value": "number",
-        "property": "nebula-tab-loading-animation",
-        "label": "Tab loading animation.",
-        "default": 1,
-        "placeholder": false,
-        "options": [
-            {
-                "label": "No Animation",
-                "value": 0
-            },
-            {
-                "label": "Default",
-                "value": 1
-            },
-            {
-                "label": "Lighter",
-                "value": 3
-            },
-            {
-                "label": "Heavier",
-                "value": 2
-            },
-            {
-                "label": "Grayscale, no blur",
-                "value": 4
-            },
-            {
-                "label": "Blur and grayscale",
-                "value": 5
-            }
-        ]
-    },
-    {
-        "type": "separator",
-        "label": "Glow Animations"
-    },
-    {
-        "type": "dropdown",
-        "value": "number",
-        "property": "nebula-glow-gradient",
-        "label": "Hover glow animation.",
-        "default": 1,
-        "placeholder": false,
-        "options": [
-            {
-                "label": "No Animation",
-                "value": 0
-            },
-            {
-                "label": "Default",
-                "value": 1
-            },
-            {
-                "label": "Monochrome",
-                "value": 2
-            },
-            {
-                "label": "RGB",
-                "value": 3
-            }
-        ]
-    },
-    {
-        "type": "separator",
-        "label": "Urlbar Animations"
-    },
-    {
-        "type": "dropdown",
-        "value": "number",
-        "property": "nebula-urlbar-animation",
-        "label": "Urlbar opening animation.",
-        "default": 1,
-        "placeholder": false,
-        "options": [
-            {
-                "label": "No Animation",
-                "value": 0
-            },
-            {
-                "label": "Default",
-                "value": 1
-            },
-            {
-                "label": "Heavier",
-                "value": 2
-            },
-            {
-                "label": "Grayscale, no blur",
-                "value": 3
-            }
-        ]
-    },
-    {
-        "type": "separator",
-        "label": "Workspace buttons"
-    },
-    {
-        "type": "dropdown",
-        "value": "number",
-        "property": "nebula-workspace-style",
-        "label": "Workspace button styles.",
-        "default": 1,
-        "placeholder": false,
-        "options": [
-            {
-                "label": "No Background",
-                "value": 0
-            },
-            {
-                "label": "Default",
-                "value": 1
-            },
-            {
-                "label": "Minimal, smooth animations.",
-                "value": 2
-            }
-        ]
-    },
-        {
-        "type": "separator",
-        "label": "sound buttons style"
-    },
-    {
-        "type": "dropdown",
-        "value": "number",
-        "property": "nebula-default-sound-style",
-        "label": "sound buttons style.",
-        "default": 1,
-        "placeholder": false,
-        "options": [
-            {
-                "label": "Disable nebula's audio indicator styling",
-                "value": 0
-            },
-            {
-                "label": "Default",
-                "value": 1
-            },
-            {
-                "label": "Floating at the upper right corner of Favicon in a smaller size",
-                "value": 2
-            }
-        ]
-    },
-    {
-        "type": "text",
-        "label": "**Other Settings**",
-        "margin": "10px 0 15px 0",
-        "size": "20px"
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-tabs-no-shadow",
-        "label": "Removes tab shadows."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-nogaps-mod",
-        "label": "Enables NoGaps mod (ONLY for single toolbar mode)."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-nogaps-compact-mod",
-        "label": "Enables Marginless Compact mod."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-compact-mode-no-sidebar-bg",
-        "label": "Disables background for compact sidebar when sites are transparent."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-pinned-tabs-bg",
-        "label": "Removes the background on Pinned tabs."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-remove-workspace-indicator",
-        "label": "Removes the workspace indicator."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-pinned-extensions-mod",
-        "label": "Enable pinned extensions mod (read Github for further process)."
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-essentials-gray-icons",
-        "label": "Gray out essentials icons when not hovered/selected"
-    },
-    {
-        "type": "checkbox",
-        "property": "nebula-disable-container-styling",
-        "label": "Disable nebula's container styling"
-    }
+  {
+    "type": "text",
+    "label": "⚙️ General Settings",
+    "margin": "30px 0 15px 0",
+    "size": "20px"
+  },
 
+  {
+    "type": "separator",
+    "label": "🎨 Tab Animations",
+    "margin": "20px 0 8px 0"
+  },
+  {
+    "type": "dropdown",
+    "property": "nebula-tab-switch-animation",
+    "label": "Tab switch animation",
+    "value": "number",
+    "default": 1,
+    "placeholder": false,
+    "options": [
+      { "label": "No animation", "value": 0 },
+      { "label": "Default", "value": 1 },
+      { "label": "Slightly bouncy", "value": 3 },
+      { "label": "More bouncy", "value": 2 },
+      { "label": "Crossfade (no blur)", "value": 4 },
+      { "label": "Zoom out", "value": 5 }
+    ]
+  },
+  {
+    "type": "dropdown",
+    "property": "nebula-tab-loading-animation",
+    "label": "Tab loading animation",
+    "value": "number",
+    "default": 1,
+    "placeholder": false,
+    "options": [
+      { "label": "No animation", "value": 0 },
+      { "label": "Default", "value": 1 },
+      { "label": "Lighter", "value": 3 },
+      { "label": "Heavier", "value": 2 },
+      { "label": "Grayscale (no blur)", "value": 4 },
+      { "label": "Blur + grayscale", "value": 5 }
+    ]
+  },
+
+  {
+    "type": "separator",
+    "label": "✨ Glow Effects",
+    "margin": "25px 0 8px 0"
+  },
+  {
+    "type": "dropdown",
+    "property": "nebula-glow-gradient",
+    "label": "Hover glow animation",
+    "value": "number",
+    "default": 1,
+    "placeholder": false,
+    "options": [
+      { "label": "No animation", "value": 0 },
+      { "label": "Default", "value": 1 },
+      { "label": "Monochrome", "value": 2 },
+      { "label": "RGB", "value": 3 }
+    ]
+  },
+
+  {
+    "type": "separator",
+    "label": "🌐 URL Bar Animations",
+    "margin": "25px 0 8px 0"
+  },
+  {
+    "type": "dropdown",
+    "property": "nebula-urlbar-animation",
+    "label": "URL bar animation style",
+    "value": "number",
+    "default": 1,
+    "placeholder": false,
+    "options": [
+      { "label": "No animation", "value": 0 },
+      { "label": "Default", "value": 1 },
+      { "label": "Heavier", "value": 2 },
+      { "label": "Grayscale (no blur)", "value": 3 }
+    ]
+  },
+
+  {
+    "type": "separator",
+    "label": "🧭 Workspace Buttons",
+    "margin": "25px 0 8px 0"
+  },
+  {
+    "type": "dropdown",
+    "property": "nebula-workspace-style",
+    "label": "Workspace button style",
+    "value": "number",
+    "default": 1,
+    "placeholder": false,
+    "options": [
+      { "label": "No background", "value": 0 },
+      { "label": "Default", "value": 1 },
+      { "label": "Minimal (smooth animations)", "value": 2 }
+    ]
+  },
+
+  {
+    "type": "separator",
+    "label": "🔊 Sound Buttons",
+    "margin": "25px 0 8px 0"
+  },
+  {
+    "type": "dropdown",
+    "property": "nebula-default-sound-style",
+    "label": "Sound button style",
+    "value": "number",
+    "default": 1,
+    "placeholder": false,
+    "options": [
+      { "label": "Disable Nebula styling", "value": 0 },
+      { "label": "Default", "value": 1 },
+      { "label": "Floating (top-right of favicon, smaller size)", "value": 2 }
+    ]
+  },
+
+  {
+    "type": "separator",
+    "label": "",
+    "margin": "30px 0 5px 0"
+  },
+
+  {
+    "type": "text",
+    "label": "🧩 Other Settings",
+    "margin": "20px 0 15px 0",
+    "size": "20px"
+  },
+
+  {
+    "type": "checkbox",
+    "property": "nebula-tabs-no-shadow",
+    "label": "Remove tab shadows"
+  },
+
+  {
+    "type": "checkbox",
+    "property": "nebula-essentials-gray-icons",
+    "label": "Gray out essentials icons when idle"
+  },
+
+  {
+    "type": "checkbox",
+    "property": "nebula-disable-container-styling",
+    "label": "Disable container tab styling"
+  },
+  {
+    "type": "checkbox",
+    "property": "nebula-nogaps-mod",
+    "label": "Enable NoGaps mod (single toolbar only)"
+  },
+  {
+    "type": "checkbox",
+    "property": "nebula-nogaps-compact-mod",
+    "label": "Enable Marginless Compact mod"
+  },
+  {
+    "type": "checkbox",
+    "property": "nebula-compact-mode-no-sidebar-bg",
+    "label": "Disable compact sidebar background (transparent sites)"
+  },
+  {
+    "type": "checkbox",
+    "property": "nebula-pinned-tabs-bg",
+    "label": "Remove background on pinned tabs"
+  },
+  {
+    "type": "checkbox",
+    "property": "nebula-pinned-extensions-mod",
+    "label": "Enable pinned extensions mod (see GitHub for setup)"
+  },
+
+  {
+    "type": "checkbox",
+    "property": "nebula-remove-workspace-indicator",
+    "label": "Remove workspace indicator"
+  }
 ]
