@@ -1,7 +1,7 @@
 {
   "id": "Nebula",
   "homepage": "https://github.com/JustAdumbPrsn/Zen-Nebula",
-  "js": true,
+  "js": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/JS/Nebula.uc.js", // try direct js links
   "author": "JustAdumbPrsn",
   "name": "Nebula",
   "description": "A beautiful theme made for Zen Browser :))",
