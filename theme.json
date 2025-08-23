@@ -14,6 +14,7 @@
     "chrome": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/userChrome.css",
     "content": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/userContent.css"
   },
+  "preferences": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/preferences.json",
   "tags": [
     "content",
     "chrome",
