@@ -1,6 +1,7 @@
 {
   "id": "Nebula",
   "homepage": "https://github.com/JustAdumbPrsn/Zen-Nebula",
+  "js": true,
   "author": "JustAdumbPrsn",
   "name": "Nebula",
   "description": "A beautiful theme made for Zen Browser :))",
