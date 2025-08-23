@@ -1,6 +1,6 @@
 {
   "id": "Nebula",
-  "js": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/JS/Nebula.uc.js",
+  "js": true,
   "homepage": "https://github.com/JustAdumbPrsn/Zen-Nebula",
   "author": "JustAdumbPrsn",
   "name": "Nebula",
@@ -20,5 +20,7 @@
     "chrome",
     "minimal"
   ],
-  "fork": ["zen"]
+  "fork": [
+    "zen"
+  ]
 }
