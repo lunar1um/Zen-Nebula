@@ -10,10 +10,10 @@
   "readme": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/README.md",
   "image": "https://github.com/user-attachments/assets/e09859a4-ad66-483e-be67-b25d11d54298",
   "style": {
-    "chrome": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/userChrome.css",
-    "content": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/userContent.css"
+    "chrome": "https://raw.githubusercontent.com/lunar1um/Zen-Nebula/main/userChrome.css",
+    "content": "https://raw.githubusercontent.com/lunar1um/Zen-Nebula/main/userContent.css"
   },
-  "preferences": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/preferences.json",
+  "preferences": "https://raw.githubusercontent.com/lunar1um/Zen-Nebula/main/preferences.json",
   "tags": [
     "content",
     "chrome",
