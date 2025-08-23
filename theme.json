@@ -1,6 +1,6 @@
 {
   "id": "Nebula",
-  "js": true,
+  "js": "https://raw.githubusercontent.com/JustAdumbPrsn/Zen-Nebula/main/JS/Nebula.uc.js",
   "homepage": "https://github.com/JustAdumbPrsn/Zen-Nebula",
   "author": "JustAdumbPrsn",
   "name": "Nebula",
